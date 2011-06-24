@@ -22,8 +22,9 @@ export PYTHONSTARTUP="${HOME}/.pythonrc"
 [ -d "/usr/local/git" ] 									&& PATH="/usr/local/git/bin:${PATH}"
 [ -d "${HOME}/bin" ] 										&& PATH="${HOME}/bin:${PATH}"
 [ -d "/usr/local/include" ] 								&& PATH="/usr/local/include":${PATH}
-[ -d "/Library/Frameworks/Python.framework/Versions/2.7" ] 	&& PYTHONPATH="/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:${PYTHONPATH}"
-[ -d "/Library/Java/Home" ] 								&& export JAVA_HOME="/Library/Java/Home"
-[ -d "/opt/local/share/man" ] && export MANPATH="/opt/local/share/man":$MANPATH
-
 export PATH
+[ -d "/opt/local/share/man" ] 								&& export MANPATH="/opt/local/share/man":$MANPATH
+
+[ -d "/Library/Frameworks/Python.framework/Versions/2.7" ] 	&& PYTHONPATH="/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:${PYTHONPATH}"
+
+[ -d "/Library/Java/Home" ] 								&& export JAVA_HOME="/Library/Java/Home"

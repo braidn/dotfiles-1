@@ -114,3 +114,15 @@ UpdateMalwareDefinitions() {
 thistory() {
 	history | awk '{print $2}' | awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c | sort -n | tail | sort -nr
 }
+
+
+slname() {
+	mdfind -name $0
+	mdfind -count -name $0
+}
+
+slnamepwd() {
+	mdfind -onlyin $PWD -name $*
+	SLNAMETOTAL=$(mdfind -count -onlyin $PWD -name $*)
+	printf "\nTotal files found ${SLNAMETOTAL}\n"
+}

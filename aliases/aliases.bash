@@ -24,4 +24,4 @@ alias 	tm-themes="cd /Library/Application\ Support/TextMate/Themes/"
 alias 	tu="top -o cpu" #cpu
 alias 	tm="top -o vsize" #memory
 alias	upt="uptime | uptime-sed.sh"
-alias	teste_reload="echo 1"
+alias   eject-disk="drutil tray eject"

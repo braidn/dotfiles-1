@@ -1,0 +1,7 @@
+Host bramoto
+
+HostName bramoto.com
+User th40741
+Port 22
+ServerAliveInterval 30
+ServerAliveCountMax 120

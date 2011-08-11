@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export MACOSX_DEPLOYMENT_TARGET=10.6
+export MACOSX_DEPLOYMENT_TARGET=10.7
 export ARCHFLAGS="-arch i386 -arch x86_64"
 export PYTHONPATH
 export LC_CTYPE="pt_BR.UTF-8"
@@ -14,8 +14,11 @@ export HISTSIZE=15000 # resize history size
 export PYTHONSTARTUP="${HOME}/.pythonrc"
 
 # PATH
+[ -d "${HOME}/.pythonrc" ]									&& export PYTHONSTARTUP="${HOME}/.pythonrc"
+
 [ -d "/opt/local/bin" ] 									&& PATH="/opt/local/bin":${PATH}
 [ -d "/opt/local/sbin" ] 									&& PATH="/opt/local/sbin":${PATH}
+[ -d "/usr/local/mysql/bin/" ]								&& PATH="/usr/local/mysql/bin/":${PATH}
 [ -d "/usr/local/bin/gitx" ] 								&& PATH="/usr/local/bin/gitx":${PATH}
 [ -d "/Library/Frameworks/Python.framework/Versions/2.7" ] 	&& PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}" #set Python 2.7
 [ -d "${HOME}/Projects/Python/xml2json" ] 					&& PATH="${HOME}/Projects/Python/xml2json:${PATH}"
@@ -28,3 +31,7 @@ export PATH
 [ -d "/Library/Frameworks/Python.framework/Versions/2.7" ] 	&& PYTHONPATH="/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:${PYTHONPATH}"
 
 [ -d "/Library/Java/Home" ] 								&& export JAVA_HOME="/Library/Java/Home"
+
+
+export ANT_HOME="/Users/windu/bin/apache-ant-1.8.2"
+export LC_ALL="pt_BR.UTF-8"

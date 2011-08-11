@@ -1,6 +1,5 @@
 #!/bin/bash
 
-alias	.="pwd"
 alias	..="cd .."
 alias	...="cd ../.."
 alias	-- -="cd -"
@@ -18,10 +17,15 @@ alias	rd=rmdir
 alias 	c="clear"
 alias 	k="clear"
 alias 	edit=${EDITOR}
-alias 	_="sudo"
 alias 	tm-bundles="cd /Library/Application\ Support/TextMate/Bundles/"
 alias 	tm-themes="cd /Library/Application\ Support/TextMate/Themes/"
 alias 	tu="top -o cpu" #cpu
 alias 	tm="top -o vsize" #memory
 alias	upt="uptime | uptime-sed.sh"
 alias   eject-disk="drutil tray eject"
+alias	open-connections="lsof -i | grep -E '(LISTEN|ESTABLISHED)'"
+alias	ping="ping -s 1"
+alias	ttl="ping -s 1 www.google.com"
+
+alias	p="python"
+alias 	runserver='python manage.py runserver 0.0.0.0:8000'

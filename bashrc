@@ -27,3 +27,7 @@ for config_file in ~/bin/bash/aliases/*.bash
 	do
 	  source $config_file
 	done
+	
+	
+	
+# source `which virtualenvwrapper.sh`

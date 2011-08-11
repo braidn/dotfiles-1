@@ -2,7 +2,8 @@
 
 
 print_before_the_prompt () {  
-    printf "\n$reset_color%s$red@$normal$reset_color%s$red:$reset_color %s $yellow%s$reset_color \n" "$USER" "$HOSTNAME" "$PWD"  "$(vcprompt)"
+    # printf "\n$reset_color%s$red@$normal$reset_color%s$red:$reset_color %s $yellow%s$reset_color \n" "$USER" "$HOSTNAME" "$PWD"  "$(vcprompt)"
+    printf "\n%s@%s: %s $yellow%s$reset_color \n" "$USER" "$HOSTNAME" "$PWD"  "$(vcprompt)"
 }
 export PROMPT_COMMAND=print_before_the_prompt
 

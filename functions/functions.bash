@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 # [#] Personal Functions
 # web
 function web {
@@ -12,20 +10,19 @@ function list_internet_connections {
 	lsof -nPi | cut -f 1 -d " "| uniq | tail -n +2	
 }
 
-# Hard Kill
+# Kill Like a Boss
 function vaporize {
 	QSTRING=$*
 	PROC=`ps aux | grep ${QSTRING} | grep -v grep | awk '{print $2}'`
 	if [ ! -n "$PROC" ]; then
-		echo "hkill: Nothing found with the matching String: \"${QSTRING}\"."
+		echo "0 PID found with the matching String: \"${QSTRING}\"."
 	else
 		NUMPROC=`echo $PROC  | awk '{print NF}'`
-		echo "hkill: Found $NUMPROC PIDs with the matching String: \"${QSTRING}\"."
+		echo "Found $NUMPROC PIDs with the matching String: \"${QSTRING}\"."
 		sudo kill -9 $PROC
-		echo "hkill: Task Complete."
+		echo "All process Killed."
 	fi
 }
-
 
 convISOToUTF8() {
 filename="$1"

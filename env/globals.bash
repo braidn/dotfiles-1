@@ -7,7 +7,7 @@ export LC_CTYPE="pt_BR.UTF-8"
 export GREP_OPTIONS="--exclude=\*.svn\*"
 export LANG="en_US.UTF-8"
 # export LC_CTYPE="en_US.UTF-8"
-export EDITOR='mate -w'  # OS-X SPECIFIC - TextMate, w is to wait for TextMate window to close
+# export EDITOR='mate -w'  # OS-X SPECIFIC - TextMate, w is to wait for TextMate window to close
 export HISTCONTROL=erasedups # Erase duplicates
 export HISTSIZE=15000 # resize history size
 

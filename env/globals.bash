@@ -2,36 +2,63 @@
 
 export MACOSX_DEPLOYMENT_TARGET=10.7
 export ARCHFLAGS="-arch i386 -arch x86_64"
-export PYTHONPATH
-export LC_CTYPE="pt_BR.UTF-8"
-export GREP_OPTIONS="--exclude=\*.svn\*"
-export LANG="en_US.UTF-8"
-# export LC_CTYPE="en_US.UTF-8"
-# export EDITOR='mate -w'  # OS-X SPECIFIC - TextMate, w is to wait for TextMate window to close
-export HISTCONTROL=erasedups # Erase duplicates
+export PYTHONPATH #Clean PYTHONPATH
+
+
+# export BRNGP_LANG="pt_BR.UTF-8"
+export BRNGP_LANG="en_US.UTF-8"
+export LANG="${BRNGP_LANG}"
+export LC_CTYPE="${BRNGP_LANG}"
+export LC_ALL="${BRNGP_LANG}"
+unset BRNGP_LANG
+
+export HISTIGNORE="${HISTIGNORE}:&:ls:[bf]g:exit"
+export HISTCONTROL="${HISTCONTROL}:erasedups:ignoreboth"  # Erase duplicates
+export HISTTIMEFORMAT="%h/%D - %H:%M:%S "
 export HISTSIZE=15000 # resize history size
 
-export PYTHONSTARTUP="${HOME}/.pythonrc"
+# Python 
+########
+[ -f "${HOME}/.pythonrc" ]									&&  PYTHONSTARTUP="${HOME}/.pythonrc"
+[ -d "/usr/local/Cellar/python/2.7.2/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/" ] 	&& PYTHONPATH="/usr/local/Cellar/python/2.7.2/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:${PYTHONPATH}"
+export PYTHONSTARTUP
+export PYTHONPATH
 
 # PATH
-[ -d "${HOME}/.pythonrc" ]									&& export PYTHONSTARTUP="${HOME}/.pythonrc"
+######
+[ -d "/usr/local/bin" ] 					&& PATH="/usr/local/bin":${PATH}
+[ -d "/usr/local/share/python" ] 			&& PATH="/usr/local/share/python":${PATH}
+[ -d "/opt/local/bin" ] 					&& PATH="/opt/local/bin":${PATH}
+[ -d "/opt/local/sbin" ] 					&& PATH="/opt/local/sbin":${PATH}
+[ -d "/usr/local/git" ] 					&& PATH="/usr/local/git/bin:${PATH}"
+[ -d "${HOME}/.local/bin" ] 				&& PATH="${HOME}/.local/bin:${PATH}"
+[ -d "/usr/local/include" ] 				&& PATH="/usr/local/include":${PATH}
 
-[ -d "/opt/local/bin" ] 									&& PATH="/opt/local/bin":${PATH}
-[ -d "/opt/local/sbin" ] 									&& PATH="/opt/local/sbin":${PATH}
-[ -d "/usr/local/mysql/bin/" ]								&& PATH="/usr/local/mysql/bin/":${PATH}
-[ -d "/usr/local/bin/gitx" ] 								&& PATH="/usr/local/bin/gitx":${PATH}
-[ -d "/Library/Frameworks/Python.framework/Versions/2.7" ] 	&& PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}" #set Python 2.7
-[ -d "${HOME}/Projects/Python/xml2json" ] 					&& PATH="${HOME}/Projects/Python/xml2json:${PATH}"
-[ -d "/usr/local/git" ] 									&& PATH="/usr/local/git/bin:${PATH}"
-[ -d "${HOME}/bin" ] 										&& PATH="${HOME}/bin:${PATH}"
-[ -d "/usr/local/include" ] 								&& PATH="/usr/local/include":${PATH}
+# Homebrew
+##########
+export HOMEBREW_HOME="/usr/local"
+PATH="${HOMEBREW_HOME}/bin:${HOMEBREW_HOME}/sbin:$PATH"
+
+# Homebrew's Python Scripts
+[ -d "${HOMEBREW_HOME}/share/python" ] && PATH="${HOMEBREW_HOME}/share/python:$PATH"
+
+
+
+[ -d "/opt/local/share/man" ] 				&& export MANPATH="/opt/local/share/man":$MANPATH
+[ -d "/Library/Java/Home" ] 				&& export JAVA_HOME="/Library/Java/Home"
+
+# virtualenvwrapper
+###################
+export WORKON_HOME=$HOME/.virtualenvs
+[ -f /usr/local/bin/virtualenvwrapper.sh ]	&& source /usr/local/bin/virtualenvwrapper.sh
+
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages --distribute --python=/usr/local/Cellar/python/2.7.2/bin/python' #cria ambientes no site packages e distribute por padrão
+
+#color grep	
+# export GREP_OPTIONS='--color=auto --exclude=\*.svn\*'
+export ANT_HOME="/Users/windu/.local/apache-ant-1.8.2"
+export PIP_RESPECT_VIRTUALENV=true
+
+
 export PATH
-[ -d "/opt/local/share/man" ] 								&& export MANPATH="/opt/local/share/man":$MANPATH
 
-[ -d "/Library/Frameworks/Python.framework/Versions/2.7" ] 	&& PYTHONPATH="/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:${PYTHONPATH}"
-
-[ -d "/Library/Java/Home" ] 								&& export JAVA_HOME="/Library/Java/Home"
-
-
-export ANT_HOME="/Users/windu/bin/apache-ant-1.8.2"
-export LC_ALL="pt_BR.UTF-8"

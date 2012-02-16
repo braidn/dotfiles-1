@@ -6,10 +6,6 @@ Host bramoto.com
 	HostName bramoto.com
 	User th40741
 
-# Host *backup
-# 	HostName backup.peepcode.com
-# 	User backuper
-# 	Port 2323
 
 # Do not kill connection if route is down temporarily.
 TCPKeepAlive no

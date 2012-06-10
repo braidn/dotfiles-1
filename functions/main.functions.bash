@@ -1,39 +1,67 @@
 #!/bin/bash
 
+
+# Django function to runserver for a given interface OR if no parameters passed it
+# will use en1
+
+
+runservervm() {
+	interface=$1
+	if [ -n "$interface" ]; then
+		interface=$1
+	else
+		interface='en1'
+	fi
+	internalIP=$(ipconfig getifaddr ${interface})
+	echo "http://${internalIP}:8000" | pbcopy
+	python manage.py runserver ${internalIP}:8000
+}
+
 # [#] Personal Functions
 # web
 
-tm-restart() { 
-	osascript -e 'tell app "TextMate" to reload bundles'; 
-}
 
-convISOToUTF8() {
-filename="$1"
-newfile="new_${filename}"
-	 # echo	"	"
-	iconv -f WINDOWS-1252 -t UTF-8 ${filename} > ${newfile}
-}
-
-localize_project() {
-	find ../ -name *.m | xargs genstrings -o $1
+iso_to_utf8() {
+	file_input=$1
+	file_output="utf8_${file_input}"
+	original_charset=$(file -I ${file_input} | awk '{print substr($3,9,length($3))}')
+	iconv -f ${original_charset} -t UTF-8 ${file_input} > ${file_output}
+	unset file_output file_input original_charset
 }
 
 
-# Kill Like a Boss
-Killall() {
+# ios icons
+
+ios_icons() {
+	f=$(pwd)
+	sips --resampleWidth 512 "${f}/${1}" --out "${f}/iTunesArtwork"
+	sips --resampleWidth 57 "${f}/${1}" --out "${f}/Icon.png"
+	sips --resampleWidth 114 "${f}/${1}" --out "${f}/Icon@2x.png"
+	sips --resampleWidth 29 "${f}/${1}" --out "${f}/Icon-Small.png"
+	sips --resampleWidth 58 "${f}/${1}" --out "${f}/Icon-Small@2x.png"
+	sips --resampleWidth 50 "${f}/${1}" --out "${f}/Icon-Small-50.png"
+	sips --resampleWidth 72 "${f}/${1}" --out "${f}/Icon-72.png"
+}
+
+
+
+Kill() {
 	QSTRING=$*
-	PROC=`ps aux | grep -i ${QSTRING} | grep -v grep | awk '{print $2}'`
-	if [ ! -n "$PROC" ]; then
-		echo "0 PID found with the matching String: \"${QSTRING}\"."
-	else
-		NUMPROC=`echo $PROC  | awk '{print NF}'`
-		echo "Found $NUMPROC PIDs with the matching String: \"${QSTRING}\"."
-		sudo kill -9 $PROC
-		echo "All process Killed."
-	fi
-}
+	PROC=""
+	for i in $*
+	do
+		PROC="${PROC} "$(ps aux | grep -v grep | grep -i $i | awk '{print $2}')
+	done
 
-alias vaporize='Killall'
+	if [ -n "$PROC" ]; then
+		echo "Found $(echo ${PROC}  | awk '{print NF}') PIDs with the matching String: \"${QSTRING}\""
+		sudo kill -9 $PROC
+	else
+		echo "0 PID found with the matching String: \"${QSTRING}\""
+	fi
+	echo "Finished"
+	unset PROC QSTRING
+}
 
 
 octal-helps() {
@@ -119,4 +147,18 @@ git-version() {
 	version=`git describe --abbrev=0 --tags`
 	short_hash=`git rev-parse --short HEAD`
 	echo "Version: $version ($short_hash)"
+}
+
+function myInternalIP() {
+
+ifconfig lo0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "lo0       : " $2}'
+
+ifconfig en0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en0 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+
+ifconfig en0 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en0 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
+
+ifconfig en1 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en1 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+
+ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
+
 }

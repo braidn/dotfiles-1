@@ -1,13 +1,16 @@
 #!/bin/bash
 
-# alias 	python="/usr/local/bin/python2.7"
+# misc
+######
+
 alias	upt="uptime | uptime-sed.sh"
 alias	open-connections="lsof -i | grep -E '(LISTEN|ESTABLISHED)'"
 alias	p="python"
 alias 	runserver='python manage.py runserver 0.0.0.0:8000'
 alias   eject-disk="drutil tray eject"
-alias VLC="open -a '/Applications/VLC.app'"
+alias   VLC="open -a '/Applications/VLC.app'"
 
+alias   Killall='Kill'
 
 
 # top
@@ -26,18 +29,26 @@ alias	ttl='ping -s 1 www.google.com'
 alias	ping='ping -s 1'
 
 
-
-# Xcode
-#######
-alias	xcode-select='xcode-select --print-path'
-
 # django
 ########
 alias	runserver='python manage.py runserver 0.0.0.0:8000'
+alias	runserver-vm='python manage.py runserver $(ipconfig getifaddr en1):8000'
+# linux version should use piping
+# The Ez way: /manage.py runserver $(ifconfig en1 | grep broadcast | cut -d: -f2 | awk '{print $2}'):8000
+# The Hard way: pipe with sed
+#
+# alias	runserver-vm='python manage.py runserver $(ipconfig getifaddr en1):8000'
+
 alias	syncdb='python manage.py syncdb'
 
 
-
-# alias python='/usr/local/Cellar/python/2.7.2/bin/python2.7'
-
-alias mkve='mkvirtualenv --no-site-packages --python=/usr/local/bin/python'
+# Sublime Text 2
+#
+# this alias was made because I use a custom python installed from homebrew,
+# if you do not use this setup you should create a symbolic link from the path
+# /Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl -> /usr/bin/
+#
+# export $SUBL="'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl'"
+# alias subl=$SUBL
+alias st="subl"
+alias s="st ."

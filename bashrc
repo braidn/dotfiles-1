@@ -1,19 +1,19 @@
 #!/bin/bash
 
 # Functions
-for config_file in ~/.local/bash/functions/*.functions.bash
+for config_file in ~/.local/dotfiles/functions/*.functions.bash
 do
 	source $config_file
 done
 
 # Aliases
-for config_file in ~/.local/bash/aliases/*.aliases.bash
+for config_file in ~/.local/dotfiles/aliases/*.aliases.bash
 do
 	source $config_file
 done
 
 # Env Vars
-for config_file in ~/.local/bash/env/*.env.bash
+for config_file in ~/.local/dotfiles/env/*.env.bash
 do
 	source $config_file
 done

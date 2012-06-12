@@ -2,15 +2,19 @@
 
 export MACOSX_DEPLOYMENT_TARGET=10.7
 export ARCHFLAGS="-arch i386 -arch x86_64"
-export PYTHONPATH #Clean PYTHONPATH
+
+# To test if virtualenvs work without this hack
+# export PYTHONPATH #Clean PYTHONPATH
 
 
+# deprecated: oh-my-zsh already configures LC_CTYPE
+#
 # export BRNGP_LANG="pt_BR.UTF-8"
-export BRNGP_LANG="en_US.UTF-8"
-export LANG="${BRNGP_LANG}"
-export LC_CTYPE="${BRNGP_LANG}"
-export LC_ALL="${BRNGP_LANG}"
-unset BRNGP_LANG
+# export BRNGP_LANG="en_US.UTF-8"
+# export LANG="${BRNGP_LANG}"
+# export LC_CTYPE="${BRNGP_LANG}"
+# export LC_ALL="${BRNGP_LANG}"
+# unset BRNGP_LANG
 
 export HISTIGNORE="${HISTIGNORE}:&:ls:[bf]g:exit:ls *:cd:cd -:pwd;exit:date:* --help"
 export HISTCONTROL="${HISTCONTROL}:erasedups:ignoreboth"  # Erase duplicates
@@ -49,12 +53,12 @@ PATH="${HOMEBREW_HOME}/bin:${HOMEBREW_HOME}/sbin:$PATH"
 # virtualenvwrapper
 ###################
 export WORKON_HOME=$HOME/.virtualenvs
-[ -f /usr/local/bin/virtualenvwrapper.sh ]  && source /usr/local/bin/virtualenvwrapper.sh
+[ -f /usr/local/bin/virtualenvwrapper.sh ]  && . /usr/local/bin/virtualenvwrapper.sh 2>/dev/null
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--distribute --python=/usr/local/Cellar/python/2.7.2/bin/python'
 
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=' --distribute --python=/usr/local/Cellar/python/2.7.2/bin/python' #cria ambientes no site packages e distribute por padrão
+# disable PS1 append by the activate hook from virtualenvwrapper
+export VIRTUAL_ENV_DISABLE_PROMPT=' '
 
-#color grep
-# export GREP_OPTIONS='--color=auto --exclude=\*.svn\*'
 export ANT_HOME="/Users/windu/.local/apache-ant-1.8.2"
 export PIP_RESPECT_VIRTUALENV=true
 export PATH

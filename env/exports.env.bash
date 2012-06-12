@@ -2,20 +2,6 @@
 
 export MACOSX_DEPLOYMENT_TARGET=10.7
 export ARCHFLAGS="-arch i386 -arch x86_64"
-
-# To test if virtualenvs work without this hack
-# export PYTHONPATH #Clean PYTHONPATH
-
-
-# deprecated: oh-my-zsh already configures LC_CTYPE
-#
-# export BRNGP_LANG="pt_BR.UTF-8"
-# export BRNGP_LANG="en_US.UTF-8"
-# export LANG="${BRNGP_LANG}"
-# export LC_CTYPE="${BRNGP_LANG}"
-# export LC_ALL="${BRNGP_LANG}"
-# unset BRNGP_LANG
-
 export HISTIGNORE="${HISTIGNORE}:&:ls:[bf]g:exit:ls *:cd:cd -:pwd;exit:date:* --help"
 export HISTCONTROL="${HISTCONTROL}:erasedups:ignoreboth"  # Erase duplicates
 export HISTTIMEFORMAT="%h/%D - %H:%M:%S "

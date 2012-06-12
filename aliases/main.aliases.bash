@@ -50,5 +50,8 @@ alias	syncdb='python manage.py syncdb'
 #
 # export $SUBL="'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl'"
 # alias subl=$SUBL
-alias st="subl"
-alias s="st ."
+alias st="subl -n"
+alias s="st -n ."
+
+
+alias ls='ls -Gp'

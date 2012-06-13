@@ -1,20 +1,26 @@
 #!/bin/bash
 
 
+
 # Django function to runserver for a given interface OR if no parameters passed it
 # will use en1
 
+runserver() {
+	# localip is a alias to a miniscript wrote in python to solve
+	# the localip which have access to the internet
 
-runservervm() {
-	interface=$1
-	if [ -n "$interface" ]; then
-		interface=$1
-	else
-		interface='en1'
-	fi
-	internalIP=$(ipconfig getifaddr ${interface})
-	echo "http://${internalIP}:8000" | pbcopy
+	internalIP=$(localip)
+	open "http://${internalIP}:8000"
 	python manage.py runserver ${internalIP}:8000
+}
+
+# run simple server
+function server() {
+	local port="${1:-8000}"
+	open "http://localhost:${port}/"
+	# Set the default Content-Type to `text/plain` instead of `application/octet-stream`
+	# And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
+	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
 }
 
 # [#] Personal Functions
@@ -77,10 +83,6 @@ octal-helps() {
 }
 
 
-updateMalwareDefinitions() {
-	sudo /usr/libexec/XProtectUpdater
-	echo "Last Malware Definitions $(defaults read /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/XProtect.meta LastModification)"
-}
 
 
 thistory() {
@@ -88,7 +90,7 @@ thistory() {
 }
 
 rules-of-the-internet() {
-	echo "	
+	echo "
 	RULES OF THE INTERNET
 	---------------------
 	O

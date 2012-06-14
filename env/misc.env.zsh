@@ -13,6 +13,9 @@ export HISTIGNORE="${HISTIGNORE}:&:ls:[bf]g:exit:ls *:cd:cd -:pwd;exit:date:* --
 export HISTCONTROL="${HISTCONTROL}:erasedups:ignoreboth"  # Erase duplicates
 export HISTTIMEFORMAT="%h/%D - %H:%M:%S "
 export HISTSIZE=15000 # resize history size
+export EDITOR="subl -n"
+export GIT_EDITOR=$EDITOR
+
 
 [ -d "/opt/local/share/man" ] && export MANPATH="/opt/local/share/man":$MANPATH
 
@@ -26,3 +29,4 @@ export HISTSIZE=15000 # resize history size
 # Node JS
 ################################################################
 export NODE_PATH="/usr/local/lib/node"
+

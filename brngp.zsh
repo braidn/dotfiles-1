@@ -9,3 +9,6 @@ done
 
 
 unset __BRNGP_PLUGIN_PATH
+
+# Don't check mail when opening terminal.
+unset MAILCHECK

@@ -7,36 +7,34 @@
 #
 # Shortcuts
 ##
-alias   m="mate ."      # textmate
-alias   o="open"
-alias   oo="open ."
-alias   st="subl -n"    # sublime text 2
-alias   s="st"
-alias   ss="s -n ."
-alias   ls='ls -Gp'
+alias m="mate ."      # textmate
+alias o="open"
+alias oo="open ."
+alias st="subl -n"    # sublime text 2
+alias s="st"
+alias ss="s -n ."
+alias ls='ls -Gp'
 alias lsd='ls -l | grep "^d"'   # List only directories
-
-alias	open-connections="lsof -i | grep -E '(LISTEN|ESTABLISHED)'"
-alias	p="python"
-
-alias   eject-disk="drutil tray eject"
-
+alias open-connections="lsof -i | grep -E '(LISTEN|ESTABLISHED)'"
+alias p="python"
+alias eject-disk="drutil tray eject"
+alias nano=$EDITOR
 #
 # Top
 ##
-alias	tu='top -o cpu'
-alias 	tm='top -o rsize'
-alias	tlu='top -l 1 -o cpu -n 10'
-alias 	tlm='top -l 1 -o rsize -n 10'
-alias	tlmm='top -l 1 -o rsize -n 10 | awk '\''{print $2 "\t\t" $11}'\'' | tail -11'
+alias tu='top -o cpu'
+alias tm='top -o rsize'
+alias tlu='top -l 1 -o cpu -n 10'
+alias tlm='top -l 1 -o rsize -n 10'
+alias tlmm='top -l 1 -o rsize -n 10 | awk '\''{print $2 "\t\t" $11}'\'' | tail -11'
 
-alias	pi='ping -s 1'            # "light ping" sends a ping with 1 bit to not overload the network
-alias   ttl='pi www.google.com'     # my time to live
+alias pi='ping -s 1'            # "light ping" sends a ping with 1 bit to not overload the network
+alias ttl='pi www.google.com'     # my time to live
 
 #
 # django syncdb command
 ##
-alias   syncdb='python manage.py syncdb'
+alias syncdb='python manage.py syncdb'
 
 #
 # Enable aliases to be sudo’ed

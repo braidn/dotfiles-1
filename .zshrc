@@ -23,12 +23,12 @@ alias ohmyzsh="subl -n ~/.oh-my-zsh"
 # Uncomment following line if you want to disable autosetting terminal title.
 # DISABLE_AUTO_TITLE="true"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump git github brew cloudapp django extract github osx python ssh-agent svn terminalapp fabric)
+plugins=(autojump git github brew cloudapp django extract github osx python ssh-agent svn terminalapp fabric gibo)
 
 source $ZSH/oh-my-zsh.sh
 

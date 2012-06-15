@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Copyright (c) 2012, Bruno Gama
+#
+# Permission to use, copy, modify, and/or distribute this software for any
+# purpose with or without fee is hereby granted, provided that the above
+# copyright notice and this permission notice appear in all copies.
+#
+# THE SOFTWARE IS PROVIDED “AS IS” AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+# REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+# AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+# INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+# LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+# OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+# PERFORMANCE OF THIS SOFTWARE.
+
+
+
+# itunes_sync -- forces iTunes to sync with the device passed by parameter
+#
+# SYNOPSIS
+#   itunes_sync Newton
+#
+#  by Bruno Gama <twitter: @brunogama>
+# Tested on 10.6 and 10.7.
+# To sync multiple devices
+# If the name of the devices are: Newton and Coruscant
+#
+# for device in Newton Coruscant;do sh itunes_sync $device;done;
+#
+
+export device=$*
+notes=$(/usr/bin/osascript <<-__HEREDOC__
+if not checkItunesIsActive() then return
+
+tell application "iTunes"
+    try
+        set src to (some source whose name contains "$device")
+        tell src to update
+    end try
+end tell
+
+to checkItunesIsActive()
+    tell application id "sevs" to return (exists (some process whose name is "iTunes"))
+end checkItunesIsActive
+__HEREDOC__
+)
+unset device

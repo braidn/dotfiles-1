@@ -25,13 +25,33 @@
 #
 # Tested on 10.7.
 #
-pos=$1
-if [ -z "$pos" ]; then
-    echo 'You should set the new position to the Dock'
-    echo '\t left|center|right'
-else
-    defaults write com.apple.dock orientation -string $pos > /dev/null 2>&1
-    killall Dock
-fi
+
+
+_dock() {
+    defaults write com.apple.dock orientation -string $* > /dev/null 2>&1
+    killall Dock > /dev/null 2>&1
+}
+
+_help()
+{
+    echo "Valid parameters:"
+    echo $'\t -l set dock orientation to the Left'
+    echo $'\t -c set dock orientation to the Center'
+    echo $'\t -r set dock orientation to the Right'
+}
+while getopts lcr op; do
+    case "${op}" in
+        l) ___p='left' ;;
+        c) ___p='center' ;;
+        r) ___p='right' ;;
+        *) _help;;
+    esac
+done
+
+[ $___p ] && _dock $___p
+
+unset ___p _dock _help
+
+exit 0
 
 unset pos

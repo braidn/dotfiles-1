@@ -30,6 +30,7 @@
 _dock() {
     defaults write com.apple.dock orientation -string $* > /dev/null 2>&1
     killall Dock > /dev/null 2>&1
+    echo "The Dock position is set to ${*}"
 }
 
 _help()

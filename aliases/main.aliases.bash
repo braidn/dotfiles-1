@@ -19,6 +19,7 @@ alias open-connections="lsof -i | grep -E '(LISTEN|ESTABLISHED)'"
 alias p="python"
 alias eject-disk="drutil tray eject"
 alias nano=$EDITOR
+alias masupdate="open macappstore://showUpdatesPage" # opens the mac app store direct into the update section
 #
 # Top
 ##

@@ -33,10 +33,16 @@ alias pi='ping -s 1'            # "light ping" sends a ping with 1 bit to not ov
 alias ttl='pi www.google.com'     # my time to live
 
 #
-# django syncdb command
+# python and django syncdb command
 ##
 alias syncdb='python manage.py syncdb'
+alias pyc='find . -type f \( -name \*\.pyc -or -name \*\.pyo \) -exec rm -v {} \;'
 
+
+#
+# MAC Address
+################################################################
+alias gen_new_mac_adddress="openssl rand -hex 1 | tr '[:lower:]' '[:upper:]' | xargs echo \"obase=2;ibase=16;\" | bc | cut -c1-6 | sed 's/$/00/' | xargs echo \"obase=16;ibase=2;\" | bc | sed \"s/$/:$(openssl rand -hex 5 | sed 's/\(..\)/\1:/g; s/.$//' | tr '[:lower:]' '[:upper:]')/\""
 #
 # Enable aliases to be sudo’ed
 ##

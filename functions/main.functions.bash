@@ -50,26 +50,6 @@ ios_icons() {
 }
 
 
-
-Kill() {
-	QSTRING=$*
-	PROC=""
-	for i in $*
-	do
-		PROC="${PROC} "$(ps aux | grep -v grep | grep -i $i | awk '{print $2}')
-	done
-
-	if [ -n "$PROC" ]; then
-		echo "Found $(echo ${PROC}  | awk '{print NF}') PIDs with the matching String: \"${QSTRING}\""
-		sudo kill -9 $PROC
-	else
-		echo "0 PID found with the matching String: \"${QSTRING}\""
-	fi
-	echo "Finished"
-	unset PROC QSTRING
-}
-
-
 octal-helps() {
 	echo "
 	0 = no permissions whatsoever; this person cannot read, write, or execute the file

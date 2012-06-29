@@ -20,6 +20,7 @@ alias p="python"
 alias eject-disk="drutil tray eject"
 alias nano=$EDITOR
 alias masupdate="open macappstore://showUpdatesPage" # opens the mac app store direct into the update section
+alias pkill='pkill -i' #pkill is part of the proctools package
 #
 # Top
 ##

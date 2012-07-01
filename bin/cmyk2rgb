@@ -1,0 +1,28 @@
+#!/bin/bash
+
+##########################################################
+# Based in the sample script from the link:              #
+# "Can I convert an image from CMYK to RGB in Mac OS X?" #
+# http://superuser.com/a/117489                          #
+##########################################################
+
+
+if [ -z "$1" ]; then
+    echo Converts an image to RGB color space
+    echo
+    echo $(basename $0) usage:
+    echo $(basename $0) filename
+    echo $(basename $0) source-file destination-file
+    exit
+fi
+
+SOURCE_FILE=$1
+DESTINATION_FILE=$2
+
+if [ -z "$2" ]; then
+    DESTINATION_FILE=$1
+fi
+
+sips --matchTo /System/Library/ColorSync/Profiles/Generic\ RGB\ Profile.icc $SOURCE_FILE --out $DESTINATION_FILE
+
+unset SOURCE_FILE DESTINATION_FILE

@@ -14,6 +14,15 @@ runserver() {
 	python manage.py runserver ${internalIP}:8000
 }
 
+runserver_plus() {
+	# localip is a alias to a miniscript wrote in python to solve
+	# the localip which have access to the internet
+
+	internalIP=$(localip)
+	open "http://${internalIP}:8000"
+	python manage.py runserver_plus ${internalIP}:8000
+}
+
 # run simple server
 function server() {
 	local port="${1:-8000}"
@@ -113,7 +122,7 @@ rules-of-the-internet() {
 	36. There will always be even more fucked up shit than what you just saw
 	37. You can not divide by zero [just because the calculator says so]
 	38. No real limits of any kind apply here - not even the sky
-	39. CAPSLOCK IS CRUISE CONTROL FOR COOL
+	39. CAPSLOCK IS CONTROLUISE CONTROL FOR COOL
 	40. EVEN WITH CRUISE CONTROL YOU STILL HAVE TO STEER
 	41. Desu isn't funny. Seriously guys. It's worse than Chuck Norris jokes.
 	42. Nothing is Sacred
@@ -124,23 +133,18 @@ rules-of-the-internet() {
 	47. The pool is always closed."
 }
 
+accent-help() {
+	echo 'ä ë ï ö ü are made by typing option u then the vowel'
+	echo 'â ê î ô û are made by typing option i then the vowel'
+	echo 'á é í ó ú are made by typing option e then the vowel'
+	echo 'note opt 6 then the vowel when using the extended keyboard'
+	echo 'à è ì ò ù are made by typing option ` (above the tab key) then the vowel'
+	echo 'ā option a then the vowel only with the extended keyboard..'
+}
+
 
 git-version() {
 	version=`git describe --abbrev=0 --tags`
 	short_hash=`git rev-parse --short HEAD`
 	echo "Version: $version ($short_hash)"
-}
-
-function myInternalIP() {
-
-ifconfig lo0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "lo0       : " $2}'
-
-ifconfig en0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en0 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
-
-ifconfig en0 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en0 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
-
-ifconfig en1 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en1 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
-
-ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
-
 }

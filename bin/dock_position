@@ -19,7 +19,7 @@
 # dock_position -- set the dock position
 #
 # SYNOPSIS
-#   dock_position left|center|right
+#   dock_position l|c|r
 #
 #  by Bruno Gama <twitter: @brunogama>
 #

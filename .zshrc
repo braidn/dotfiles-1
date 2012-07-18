@@ -1,3 +1,5 @@
+unset MAILCHECK
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -5,7 +7,11 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="dstufft"
+
+# robbyrussell [default]
+# dstufft
+# steeef
+ZSH_THEME="robbyrussell"
 
 # Example aliases
 alias ze="subl -n ~/.zshrc"
@@ -28,7 +34,10 @@ alias ohmyzsh="subl -n ~/.oh-my-zsh"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump git github brew cloudapp django extract github osx python ssh-agent svn terminalapp fabric gibo)
+plugins=(virtualenvwrapper autojump git github django brew cloudapp extract github osx python svn fabric gibo)
+
+# plugins=(virtualenvwrapper autojump git github django extract github osx python)
+
 
 source $ZSH/oh-my-zsh.sh
 

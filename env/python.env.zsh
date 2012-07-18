@@ -14,4 +14,4 @@ export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--distribute --python=/usr/local/Cellar/python/2.7.3/bin/python'
 export PIP_RESPECT_VIRTUALENV=true
 # disable PS1 append by the activate hook from virtualenvwrapper
-export VIRTUAL_ENV_DISABLE_PROMPT=' '
+# export VIRTUAL_ENV_DISABLE_PROMPT=' '

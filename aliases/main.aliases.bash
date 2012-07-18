@@ -20,7 +20,10 @@ alias p="python"
 alias eject-disk="drutil tray eject"
 alias nano=$EDITOR
 alias masupdate="open macappstore://showUpdatesPage" # opens the mac app store direct into the update section
-alias pkill='pkill -i' #pkill is part of the proctools package
+alias k='pkill -9 -fi'  #pkill is part of the proctools package
+alias ~='cd ~'
+alias lsusb='system_profiler SPUSBDataType'
+alias mkv='mkvirtualenv $(basename $(pwd))'
 #
 # Top
 ##

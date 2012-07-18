@@ -11,7 +11,9 @@
 [ -d "/usr/local/git" ]             && PATH="/usr/local/git/bin:${PATH}"
 [ -d "${HOME}/.local/bin" ]         && PATH="${HOME}/.local/bin:${PATH}"
 [ -d "/usr/local/include" ]         && PATH="/usr/local/include":${PATH}
-[ -d "$__BRNGP_PLUGIN_PATH/bin/" ]  && PATH="$__BRNGP_PLUGIN_PATH/bin/":${PATH}
+[ -d "/Applications/Xcode.app/Contents/Developer/usr/bin" ] && PATH="/Applications/Xcode.app/Contents/Developer/usr/bin":${PATH}
+[ -d "$__BRNGP_PLUGIN_PATH/bin" ]  && PATH="$__BRNGP_PLUGIN_PATH/bin":${PATH}
+# [ -d "${HOME}/.gem/bin" ]  && PATH="${HOME}/.gem/bin":${PATH}
 
 
 export PATH

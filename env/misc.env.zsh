@@ -1,7 +1,7 @@
 #
 # gcc on lion
 ################################################################
-export CC=/usr/bin/gcc
+# export CC=/usr/bin/gcc
 
 #
 # MISC
@@ -30,3 +30,18 @@ export GIT_EDITOR=$EDITOR
 ################################################################
 export NODE_PATH="/usr/local/lib/node"
 
+#
+# Ruby shit
+#
+# gempath:
+# - /Users/windu/.gems
+# - /Library/Ruby/Gems/1.8
+# - /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8
+
+
+# export GEM_PATH='/Users/windu/.gem:/Library/Ruby/Gems/1.8:/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8'
+# export GEM_HOME='/Users/windu/.gem'
+
+
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.

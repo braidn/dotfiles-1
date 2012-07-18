@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+_wipe() {
+    killall "iPhone Simulator"  &> /dev/null
+    _WD="$HOME/Library/Application Support/iPhone Simulator"
+    find "$_WD" -iname "*.app" | while read l; do
+        f=$(dirname "$l")
+        rm -rf "$f"
+        unset f
+    done
+    unset _WD
+    exit
+}
+
+_wipe

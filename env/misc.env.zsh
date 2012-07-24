@@ -16,6 +16,11 @@ export HISTSIZE=15000 # resize history size
 export EDITOR="subl -n"
 export GIT_EDITOR=$EDITOR
 
+# export CC=clang
+# export CXX=clang
+# export FFLAGS=-ff2c
+# export LDFLAGS="-arch x86_64 -Wall -undefined dynamic_lookup -bundle"
+# export FFLAGS="-arch x86_64"
 
 [ -d "/opt/local/share/man" ] && export MANPATH="/opt/local/share/man":$MANPATH
 

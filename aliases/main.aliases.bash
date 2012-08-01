@@ -24,6 +24,7 @@ alias k='pkill -9 -fi'  #pkill is part of the proctools package
 alias ~='cd ~'
 alias lsusb='system_profiler SPUSBDataType'
 alias mkv='mkvirtualenv $(basename $(pwd))'
+
 #
 # Top
 ##
@@ -40,7 +41,7 @@ alias ttl='pi www.google.com'     # my time to live
 # python and django syncdb command
 ##
 alias syncdb='python manage.py syncdb'
-alias pyc='find . -type f \( -name \*\.pyc -or -name \*\.pyo \) -exec rm -v {} \;'
+alias wipe_pyc='find . -type f \( -name \*\.pyc -or -name \*\.pyo \) -exec rm -v {} \;'
 
 
 #
@@ -73,7 +74,7 @@ alias whois="whois -h whois-servers.net"
 #
 # Flush Directory Service cache
 ##
-alias flush="dscacheutil -flushcache"
+alias flush="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
 #
 # View HTTP traffic

@@ -1,56 +1,86 @@
-brew install ack
-brew install autojump
-brew install boost
-brew install bsdmake
-brew install faac
-brew install ffmpeg
-brew install findutils
-brew install fribidi
-brew install gdbm
-brew install gettext
-brew install gifsicle
-brew install glib
-brew install graphviz
-brew install grc
-brew install highlight
-brew install httperf
-brew install imagemagick
-brew install jasper
-brew install jpeg
-brew install lame
-brew install lcov
-brew install lesspipe
-brew install libass
-brew install libffi
-brew install libicns
-brew install libidn
-brew install libogg
-brew install libtiff
-brew install libvo-aacenc
-brew install libvorbis
-brew install libvpx
-brew install libxml2
-brew install links
-brew install little-cms
-brew install lua
-brew install node
-brew install opencore-amr
-brew install pcre
-brew install pkg-config
-brew install pngcrush
-brew install pngnq
-brew install proctools
-brew install python
-brew install readline
-brew install rtmpdump
-brew install sqlite
-brew install swig
-brew install theora
-brew install unrar
-brew install webkit2png
-brew install wget
-brew install wine
-brew install x264
-brew install xvid
-brew install xz
-brew install yasm
+ack
+autoconf
+autojump
+automake
+boost
+bsdmake
+cimg
+cmake
+faac
+ffmpeg
+fftw
+findutils
+flac
+fribidi
+fuse4x
+fuse4x-kext
+gdbm
+gettext
+gfortran
+gifsicle
+git
+glib
+graphviz
+grc
+highlight
+httperf
+imagemagick
+jasper
+jpeg
+lame
+lcov
+lesspipe
+libass
+libffi
+libgpg-error
+libicns
+libidn
+libksba
+libogg
+libsamplerate
+libsndfile
+libtiff
+libtool
+libvo-aacenc
+libvorbis
+libvpx
+libxml2
+libxslt
+links
+little-cms
+lua
+mercurial
+mpg123
+node
+ntfs-3g
+opencore-amr
+opencv
+pcre
+phash
+pil
+pkg-config
+pngcrush
+pngnq
+proctools
+pyqt
+python
+python3
+qt
+readline
+rtmpdump
+sip
+sqlite
+sshfs
+swig
+tbb
+theora
+uncrustify
+unrar
+webkit2png
+wget
+wine
+x264
+xvid
+xz
+yasm
+zeromq

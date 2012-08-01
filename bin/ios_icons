@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# ios icons
+
+_FNAME=$(basename $0)
+_IMAGEMAGICK=$(which convert)
+
+if [ -z "$1" ]; then
+    echo " "
+    echo "Creates app icons based on the image passed as parameter. "
+    echo
+    echo "usage:"
+    echo $'\t'$_FNAME "Image.png"
+    echo " "
+    exit
+fi
+
+_downsample() {
+    if [ -s "$_IMAGEMAGICK" ]; then # Checks for imagemagick in the system
+         convert -filter Lanczos2 -resize $*
+    else
+        sips --resampleWidth $1 "$2" --out "$3" &>/dev/null
+    fi
+    echo "Created: "$3
+}
+
+_ios_icons() {
+    [ -z "$_IMAGEMAGICK" ] && echo $'\n\n\tWARNING: Using sips for downsampling, install imagemagick for better results.\n\n'
+    for _ITEM in 512 57 114 29 58 50 72; do
+        case "$_ITEM" in
+            512) _OUTFILE="iTunesArtwork"; _SIZE="$_ITEM"      ;;
+            57)  _OUTFILE="Icon.png"; _SIZE="$_ITEM"           ;;
+            114) _OUTFILE="Icon@2x.png"; _SIZE="$_ITEM"        ;;
+            29)  _OUTFILE="Icon-Small.png"; _SIZE="$_ITEM"     ;;
+            58)  _OUTFILE="Icon-Small@2x.png"; _SIZE="$_ITEM"  ;;
+            50)  _OUTFILE="Icon-Small-50.png"; _SIZE="$_ITEM"  ;;
+            72)  _OUTFILE="Icon-72.png"; _SIZE="$_ITEM"        ;;
+        esac
+        _downsample $_SIZE $1 $_OUTFILE
+        unset _ITEM _OUTFILE
+    done
+
+    unset _F
+}
+
+
+_ios_icons $1
+
+unset _ios_icons _downsample _FNAME _IMAGEMAGICK

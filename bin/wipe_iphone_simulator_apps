@@ -9,7 +9,7 @@ _wipe() {
         unset f
     done
     unset _WD
-    exit
+    exit 0
 }
 
 _wipe

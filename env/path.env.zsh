@@ -12,6 +12,7 @@
 [ -d "${HOME}/.local/bin" ]         && PATH="${HOME}/.local/bin:${PATH}"
 [ -d "/usr/local/include" ]         && PATH="/usr/local/include":${PATH}
 [ -d "/Applications/Xcode.app/Contents/Developer/usr/bin" ] && PATH="/Applications/Xcode.app/Contents/Developer/usr/bin":${PATH}
+[ -d "/Applications/Unity/MonoDevelop.app/Contents/MacOS" ] && PATH="/Applications/Unity/MonoDevelop.app/Contents/MacOS":${PATH}
 [ -d "$__BRNGP_PLUGIN_PATH/bin" ]  && PATH="$__BRNGP_PLUGIN_PATH/bin":${PATH}
 
 export PATH

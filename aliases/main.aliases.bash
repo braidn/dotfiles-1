@@ -10,17 +10,16 @@
 alias m="mate ."      # textmate
 alias o="open"
 alias oo="open ."
-alias st="subl -n"    # sublime text 2
-alias s="st"
-alias ss="s -n ."
+alias s="subl -n"
+alias ss="s ."
 alias ls='ls -Gp'
 alias lsd='ls -l | grep "^d"'   # List only directories
 alias open-connections="lsof -i | grep -E '(LISTEN|ESTABLISHED)'"
 alias p="python"
 alias eject-disk="drutil tray eject"
 alias nano=$EDITOR
-alias masupdate="open macappstore://showUpdatesPage" # opens the mac app store direct into the update section
-alias k='pkill -9 -fi'  #pkill is part of the proctools package
+alias masupdate="o macappstore://showUpdatesPage" # opens the mac app store direct into the update section
+
 alias ~='cd ~'
 alias lsusb='system_profiler SPUSBDataType'
 alias mkv='mkvirtualenv $(basename $(pwd))'
@@ -30,13 +29,11 @@ alias mkv='mkvirtualenv $(basename $(pwd))'
 ##
 alias tu='top -o cpu'
 alias tm='top -o rsize'
-alias tlu='top -l 1 -o cpu -n 10'
-alias tlm='top -l 1 -o rsize -n 10'
-alias tlmm='top -l 1 -o rsize -n 10 | awk '\''{print $2 "\t\t" $11}'\'' | tail -11'
 
-alias pi='ping -s 1'            # "light ping" sends a ping with 1 bit to not overload the network
-alias ttl='pi www.google.com'     # my time to live
+alias ttl='ping -s 1 www.google.com'     # my time to live
 
+# http://www.jukie.net/~bart/blog/pimping-out-git-log
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative"
 #
 # python and django syncdb command
 ##
@@ -115,15 +112,6 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 ##
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-#
-# Disable Spotlight
-##
-alias spotoff="sudo mdutil -a -i off"
-
-#
-# Enable Spotlight
-##
-alias spoton="sudo mdutil -a -i on"
 
 #
 # One of @janmoesen’s ProTip™s

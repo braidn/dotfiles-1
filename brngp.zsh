@@ -7,5 +7,5 @@ source $__BRNGP_PLUGIN_PATH/env/pip_completion.zsh
 for __f in $__BRNGP_PLUGIN_PATH/{functions,aliases}/*.bash; do
 	[ -f $__f ] && source $__f
 done
-
+setopt interactivecomments
 unset __BRNGP_PLUGIN_PATH

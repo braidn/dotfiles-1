@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
 source $__BRNGP_PLUGIN_PATH/env/path.env.zsh
 source $__BRNGP_PLUGIN_PATH/env/homebrew.env.zsh

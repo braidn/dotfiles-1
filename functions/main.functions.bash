@@ -118,18 +118,12 @@ rules-of-the-internet() {
 	47. The pool is always closed."
 }
 
-accent-help() {
-	echo 'ä ë ï ö ü are made by typing option u then the vowel'
-	echo 'â ê î ô û are made by typing option i then the vowel'
-	echo 'á é í ó ú are made by typing option e then the vowel'
-	echo 'note opt 6 then the vowel when using the extended keyboard'
-	echo 'à è ì ò ù are made by typing option ` (above the tab key) then the vowel'
-	echo 'ā option a then the vowel only with the extended keyboard..'
-}
-
 
 git-version() {
 	version=`git describe --abbrev=0 --tags`
 	short_hash=`git rev-parse --short HEAD`
 	echo "Version: $version ($short_hash)"
 }
+
+
+k() { for i in $*; do pkill -9 -fi $i; done }

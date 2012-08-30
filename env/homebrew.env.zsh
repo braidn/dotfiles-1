@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Homebrew
 ################################################################
 export PATH="${HOMEBREW_HOME}/bin:${HOMEBREW_HOME}/sbin:$PATH"

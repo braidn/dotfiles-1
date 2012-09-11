@@ -7,7 +7,7 @@ ZSH_THEME="sorin"
 alias ohmyzsh="subl -n ~/.oh-my-zsh"
 alias dotfiles='subl -n ~/.dotfiles'
 
-plugins=(osx autojump git github django brew extract python)
+plugins=(osx autojump git django brew extract python)
 
 source $ZSH/oh-my-zsh.sh
 

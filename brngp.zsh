@@ -1,11 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env zsh
+
+
+setopt interactivecomments  # enable "#" in the shell
+unsetopt correctall # i don't misstype because the tab so it is useless.
+
 export HOMEBREW_HOME=$(brew --prefix)
 export __BRNGP_PLUGIN_PATH=$(dirname $0)
 
-source $__BRNGP_PLUGIN_PATH/env/env.sh
-source $__BRNGP_PLUGIN_PATH/env/pip_completion.zsh
-for __f in $__BRNGP_PLUGIN_PATH/{functions,aliases}/*.bash; do
-	[ -f $__f ] && source $__f
-done
-setopt interactivecomments  # enable "#" in the shell
-unset __BRNGP_PLUGIN_PATH
+source $__BRNGP_PLUGIN_PATH/env.sh
+source $__BRNGP_PLUGIN_PATH/pip_completion.zsh
+source $__BRNGP_PLUGIN_PATH/main.aliases.bash
+source $__BRNGP_PLUGIN_PATH/main.functions.bash

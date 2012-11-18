@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# itunes.functions.bash
+# from the user: jeberle-mac
+# src: http://hints.macworld.com/article.php?story=20011108211802830
 
 itunes() {
     if [ -z "$1" -o "$1" = '-h' -o "$1" = '--help' ]; then
@@ -50,13 +53,6 @@ Usage:
   itunes get name of every playlist
   itunes get name of every track in current playlist
   itunes get name of track 3 of current playlist
-
-  itunes set position of window \"iTunes\" to '{0,22}'
-  itunes set bounds of window \"iTunes\" to '{0,22,800,600}'
-  itunes set visible of window \"iTunes\" to 1
-
-  : ... anything you can tell iTunes via OSA
-  : See /Applications/AppleScript/Script Editor
 
   vol up       - Increase volume by 10%
   vol down     - Decrease volume by 10%

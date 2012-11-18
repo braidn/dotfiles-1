@@ -1,0 +1,109 @@
+#/bin/bash
+#
+# itunes.sh - Control Your iTunes from shell
+#
+
+TRACK_PROGRAM=`cat <<EOS
+tell current track
+    name & " - " & artist
+end tell
+EOS`
+
+_itunes_sync(){
+cat <<EOS
+    try
+        set src to (some source whose name contains "$1")
+        tell src to update
+    end try
+EOS
+}
+case "$1" in
+-h|help)
+    cat <<USAGE
+usage: itunes.sh [OPTIONS]
+
+OPTIONS:
+
+    play/pause|stop     Toggle the playing/paused state
+    next                Advance to the next track in the current playlist
+    prev                Return to the previous track in the current playlist
+    track               Show information of the current track
+    shuffle (on|off)    Play the songs in this playlist in random order?
+    +n/-n               Increase/Decrease the current volume
+    sync [DEVICE NAME]  Sync the device
+    volume              The sound output volume (0 = minimum, 100 = maximum)
+
+        volume          Show the current volume
+        volume 15       Set the current volume to 15
+        volume +10      Increase the current volume
+        volume -10      Decrease the current volume
+
+    -h|help             Show this help
+USAGE
+
+    exit 0 ;;
+
+play|pause|stop)
+    PROGRAM="playpause" ;;
+next)
+    PROGRAM=`cat <<EOS
+next track
+$TRACK_PROGRAM
+EOS`
+    ;;
+prev)
+    PROGRAM=`cat <<EOS
+previous track
+$TRACK_PROGRAM
+EOS`
+    ;;
+track)
+    PROGRAM="$TRACK_PROGRAM"
+    ;;
+sync)
+shift
+    PROGRAM="$(_itunes_sync $1)"
+    ;;
+shuffle)
+    shift
+    case "$1" in
+    yes|on)
+        PROGRAM="set shuffle of current playlist to true" ;;
+    no|off)
+        PROGRAM="set shuffle of current playlist to false" ;;
+    *)
+        PROGRAM="get shuffle of current playlist"
+    esac
+    ;;
++*|-*)
+    PROGRAM="set sound volume to sound volume $1 $2" ;;
+volume)
+    shift
+    case "$1" in
+    +*|-*)
+        PROGRAM="set sound volume to sound volume $1 $2" ;;
+    *)
+        if [ -z "$1" ]; then
+            PROGRAM="get sound volume"
+        else
+            PROGRAM="set sound volume to $1"
+        fi
+    esac
+    ;;
+esac
+
+PROGRAM=`cat <<EOS
+if not checkItunesIsActive() then return
+
+tell application "iTunes"
+    $PROGRAM
+end tell
+
+to checkItunesIsActive()
+    tell application id "sevs" to return (exists (some process whose name is "iTunes"))
+end checkItunesIsActive
+EOS`
+
+echo 'oi'
+echo $PROGRAM
+exec osascript -e "$PROGRAM"

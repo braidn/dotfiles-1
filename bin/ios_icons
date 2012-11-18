@@ -1,20 +1,18 @@
 #!/usr/bin/env bash
 # ios icons
 
-_FNAME=$(basename $0)
-_IMAGEMAGICK=$(which convert)
-
 if [ -z "$1" ]; then
     echo " "
     echo "Creates app icons based on the image passed as parameter. "
     echo
     echo "usage:"
-    echo $'\t'$_FNAME "Image.png"
+    echo $'\t'$(basename $0) "Image.png"
     echo " "
     exit
 fi
 
 _downsample() {
+    local _IMAGEMAGICK=$(which convert)
     if [ -s "$_IMAGEMAGICK" ]; then # Checks for imagemagick in the system
          convert -filter Lanczos2 -resize $*
     else
@@ -42,7 +40,6 @@ _ios_icons() {
     unset _F
 }
 
-
 _ios_icons $1
 
-unset _ios_icons _downsample _FNAME _IMAGEMAGICK
+unset _ios_icons _downsample

@@ -1,0 +1,40 @@
+#!/bin/sh
+
+in_file="$1"
+# out_file="$2"
+
+# if [ -z "$in_file" ] || [ -z "$out_file" ] ; then
+
+# 	echo "USAGE: $0 [INPUT_FLAC_FILE] [OUTPUT_MP3_FILE]"
+# 	exit
+# fi
+
+# if [ ! -f "$in_file" ] ; then
+# 	echo "ERROR: Input FLAC file does not exist"
+# 	exit
+# fi
+unset META_TITLE META_ALBUM META_ARTIST META_GENRE META_DATE META_TRACK_NUMBER
+META_TITLE=$(metaflac "$in_file" --show-tag=TITLE | sed s/.*=//g)
+# META_ALBUM=$(metaflac "$in_file" --show-tag=ALBUM | sed s/ALBUM=//g)
+# META_ARTIST=$(metaflac "$in_file" --show-tag=ARTIST | sed s/ARTIST=//g)
+# META_GENRE=$(metaflac "$in_file" --show-tag=GENRE | sed s/GENRE=//g)
+# META_DATE=$(metaflac "$in_file" --show-tag=DATE | sed s/DATE=//g)
+# META_TRACK_NUMBER=$(metaflac "$in_file" --show-tag=TRACKNUMBER | sed s/TRACKNUMBER=//g)
+
+echo $META_TITLE
+# echo $META_ALBUM
+# echo $META_ARTIST
+# echo $META_GENRE
+# echo $META_DATE
+# echo $META_TRACK_NUMBER
+echo "${in_file}.mp3"
+# flac -cd "$in_file" | lame --preset extreme\
+#                            --add-id3v2\
+#                            --tt "$META_TITLE"\
+#                            --ta "$META_ARTIST"\
+#                            --tl "$META_ALBUM"\
+#                            --ty "$META_DATE"\
+#                            --tn "$META_TRACK_NUMBER"\
+#                            -tg "$META_GENRE"\
+#                            -h - "${in_file}.mp3"
+# id3 -t "$title" -A "$album" -a "$artist" -g "$genre" -y "$date" -T "$track_number" "$out_file"

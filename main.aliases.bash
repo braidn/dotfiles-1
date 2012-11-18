@@ -10,15 +10,11 @@
 alias m="mate ."      # textmate
 alias o="open"
 alias oo="open ."
-alias s="subl -n"
-alias ss="s ."
+alias s="subl -s -n"
 alias ls='ls -Gp'
 alias lsd='ls -l | grep "^d"'   # List only directories
 alias open-connections="lsof -i | grep -E '(LISTEN|ESTABLISHED)'"
 alias p="python"
-alias eject-disk="drutil tray eject"
-alias nano=$EDITOR
-alias masupdate="o macappstore://showUpdatesPage" # opens the mac app store direct into the update section
 
 alias ~='cd ~'
 alias lsusb='system_profiler SPUSBDataType'
@@ -40,11 +36,6 @@ alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %
 alias syncdb='python manage.py syncdb'
 alias wipe_pyc='find . -type f \( -name \*\.pyc -or -name \*\.pyo \) -exec rm -v {} \;'
 
-
-#
-# MAC Address
-################################################################
-alias gen_new_mac_adddress="openssl rand -hex 1 | tr '[:lower:]' '[:upper:]' | xargs echo \"obase=2;ibase=16;\" | bc | cut -c1-6 | sed 's/$/00/' | xargs echo \"obase=16;ibase=2;\" | bc | sed \"s/$/:$(openssl rand -hex 5 | sed 's/\(..\)/\1:/g; s/.$//' | tr '[:lower:]' '[:upper:]')/\""
 #
 # Enable aliases to be sudo’ed
 ##
@@ -111,18 +102,3 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 # URL-encode strings
 ##
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
-
-
-#
-# One of @janmoesen’s ProTip™s
-##
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-    alias "$method"="lwp-request -m '$method'"
-done
-
-#
-# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
-##
-alias stfu="osascript -e 'set volume output muted true'"
-alias pumpitup="osascript -e 'set volume 7'"
-alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"

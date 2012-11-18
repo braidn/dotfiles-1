@@ -16,3 +16,4 @@ else
     echo "Valid profiles:"
     echo $__ADIUM_VALID_PROFILES
 fi
+unset __ADIUM_VALID_PROFILES __ADIUM_PROFILE

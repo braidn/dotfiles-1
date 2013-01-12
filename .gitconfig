@@ -32,6 +32,7 @@
 	attributesfile = ~/.gitattributes
 	# Treat spaces before tabs, lines that are indented with 8 or more spaces, and all kinds of trailing whitespace as an error
 	whitespace = space-before-tab,indent-with-non-tab,trailing-space
+	pager = less -r
 
 [color]
 	# Use colors in Git commands that are capable of colored output when outputting to the terminal
@@ -86,3 +87,6 @@
 	trustExitCode = true
 [push]
 	default = matching
+[difftool "sourcetree"]
+	cmd = /Applications/Kaleidoscope.app/Contents/MacOS/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+	path = 

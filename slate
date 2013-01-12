@@ -1,0 +1,59 @@
+################################################################
+# Author: Bruno Gama                                           #
+# License: BeerWare                                            #
+# Contact: "bgamap" at gmail                                   #
+# Twitter: @brunogama                                          #
+#                                                              #
+#                                                              #
+#                                                              #
+# Configs                                                      #
+################################################################
+source ~/.dotfiles/slate.conf if_exists
+
+
+################################################################
+# Abstract positions                                           #
+################################################################
+source ~/.dotfiles/slate_positions.conf if_exists
+
+
+################################################################
+# Misc Aliases                                                 #
+################################################################
+alias showHintsLeftHand hint AOEUIYQJKX
+alias showNormalHint hint AOEUIDHTNSYXFBPKGMCW
+alias browser 'Google Chrome'
+alias editor 'Sublime Text 2'
+alias notes 'Evernote'
+# The HYPER key
+alias hyper ctrl;shift;alt;cmd
+
+
+################################################################
+# bindings                                                     #
+# Here is where the magic happens! (Remember MTV Cribs?)       #
+# All my keybinds are defined here.                            #
+################################################################
+bind g:cmd grid padding:5 0:8,4 1:8,3
+bind e:cmd hint ASDFGHJKLQWERTYUIOPCVB
+# Location bindings
+bind h:${hyper} ${topleft}
+bind j:${hyper} ${bottomleft}
+bind k:${hyper} ${topright}
+bind l:${hyper} ${bottomright}
+bind left:${hyper}     ${lefthalf}
+bind right:${hyper}    ${righthalf}
+bind up:${hyper}       ${full}
+# App bindings
+bind b:${hyper} focus ${browser}
+bind e:${hyper} focus ${editor}
+bind u:${hyper} focus 'Unity'
+bind x:${hyper} focus 'Xcode'
+bind g:${hyper} focus 'GitHub'
+bind m:${hyper} focus 'Mail'
+bind i:${hyper} focus 'iTerm'
+bind f:${hyper} focus 'Finder'
+bind s:${hyper} focus 'Skype'
+bind a:${hyper} focus 'Adium'
+bind t:${hyper} focus 'TweetDeck'
+bind n:${hyper} focus ${notes}

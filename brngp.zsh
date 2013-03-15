@@ -2,7 +2,7 @@
 
 
 setopt interactivecomments  # enable "#" in the shell
-unsetopt correctall # i don't misstype because the tab so it is useless.
+unsetopt correctall # i don't misstype because I use the tab so it is useless.
 
 export HOMEBREW_HOME=$(brew --prefix)
 export __BRNGP_PLUGIN_PATH=$(dirname $0)

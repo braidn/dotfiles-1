@@ -2,7 +2,7 @@
 	# View the SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph
 	# View the current working tree status using the short format
-	s = status -s
+	s = status -sb
 	# Diff
 	d = diff --patch-with-stat
 	# Pull in remote changes for the current repository and all its submodules
@@ -21,6 +21,17 @@
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 	# Undo a `git push`
 	undopush = push -f origin HEAD^:master
+
+	#source: http://net.tutsplus.com/tutorials/tools-and-tips/git-tips-from-the-pros/
+	# Amend the staged changes to your last commit.
+	amend = commit --amend -C HEAD
+	undo = reset --soft HEAD^
+	#This alias will provide a one line git log including date and committer name.
+	ls = log --first-parent --graph --pretty=format:'%Cred%h%Creset | %cn | -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	#
+	graph = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+	co = checkout
+
 
 [apply]
 	# Detect whitespace errors when applying a patch

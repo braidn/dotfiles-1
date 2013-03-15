@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 _wipe() {
-    killall "iPhone Simulator"  &> /dev/null
+    pkill -9 -fi simulator  2>/dev/null
     _WD="$HOME/Library/Application Support/iPhone Simulator"
     find "$_WD" -iname "*.app" | while read l; do
         f=$(dirname "$l")

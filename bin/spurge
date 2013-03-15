@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# spurge
+# Author: Bruno Gama <bgamap at gmail dot com>
+
+echo "Purging ..."
+for i in  $(seq ${1}); do
+    echo "Purge ${i}/${1}"
+    purge
+done

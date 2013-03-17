@@ -8,12 +8,12 @@ alias ls='ls -Gp'
 alias lsd='ls -l -Gp | grep "^d"'   # List only directories
 alias open-connections="lsof -i | grep -E '(LISTEN|ESTABLISHED)'"
 alias p="python"
-
+alias pb="pythonbrew"
 alias ~='cd ~'
 alias lsusb='system_profiler SPUSBDataType'
 alias mkv='mkvirtualenv $(basename $(pwd))'
 alias tn="/Applications/terminal-notifier.app/Contents/MacOS/terminal-notifier"
-
+alias epath='echo $PATH | tr ":" "\n"'
 alias tu='top -o cpu'
 alias tm='top -o rsize'
 
@@ -62,3 +62,4 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1]);"'

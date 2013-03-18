@@ -59,7 +59,7 @@ var theGrid = S.op("grid", {
 });
 
 var focusApp = function (argument) { return S.op("focus", {"app": argument}); };
-
+var hyperKey = function(argument) { return argument+":ctrl;shift;alt;cmd"; };
 S.bnda({
     // App Focus
     "i:ctrl;shift;alt;cmd": focusApp("iTerm"),

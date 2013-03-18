@@ -1,6 +1,0 @@
-#!/bin/bash
-
-revisioncount=`git log --oneline | wc -l | sed 's/^ *//;s/ *$//'`
-projectversion=$(git describe --tags --long | sed 's/^ *//;s/ *$//')
-
-echo "${projectversion%%-*} (${revisioncount})"

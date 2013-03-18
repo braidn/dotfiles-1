@@ -1,9 +1,8 @@
 #!/bin/bash
 
-alias m="mate ."
 alias o="open"
 alias oo="open ."
-alias s="subl -s -n"
+alias s="subl -w -s -n"
 alias ls='ls -Gp'
 alias lsd='ls -l -Gp | grep "^d"'   # List only directories
 alias open-connections="lsof -i | grep -E '(LISTEN|ESTABLISHED)'"
@@ -46,7 +45,6 @@ alias fs="stat -f \"%z bytes\""
 
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
-
 # Empty the Trash on all mounted volumes and the main HDD
 # Also, clear Apple’s System Logs to improve shell startup speed
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
@@ -54,7 +52,6 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
-
 
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"

@@ -1,20 +1,6 @@
 #!/usr/bin/env bash
+# env.sh
 
-
-# # Load pythonbrew
-# alias pb='pythonbrew'
-# export PYTHONPATH=~/.pythonbrew/pythons/Python-2.7.3/lib
-# [[ -s /home/imgnation/.pythonbrew/etc/bashrc ]] && source /home/imgnation/.pythonbrew/etc/bashrc
-
-# /home/imgnation/.pythonbrew/bin
-# /home/imgnation/.pythonbrew/pythons/Python-2.7.3/bin
-# /home/imgnation/.gems/bin
-# /usr/lib/ruby/gems/1.8/bin/
-# /usr/local/bin
-# /usr/bin
-# /bin
-# /usr/bin/X11
-# /usr/games
 
 # Pre-functions to help $PATH handling.
 
@@ -38,24 +24,17 @@ ifValidAppendToPath "/usr/local/include"
 ifValidAppendToPath "/Applications/Xcode.app/Contents/Developer/usr/bin"
 ifValidAppendToPath "/Applications/Unity/MonoDevelop.app/Contents/MacOS"
 ifValidAppendToPath "/Applications/Unity/MonoDevelop.app/Contents/Frameworks/Mono.framework/Commands/"
-ifValidAppendToPath "$__BRNGP_PLUGIN_PATH/bin"
-
-# PATH="$(brew --prefix coreutils)/libexec/gnubin:${PATH}"
-# PATH="$(brew --prefix josegonzalez/php/php54)/bin:$PATH"
-
+ifValidAppendToPath "$__BG_PLUGIN_PATH/bin"
 
 # Homebrew
-# PATH="${HOMEBREW_HOME}/bin:${HOMEBREW_HOME}/sbin:$PATH"
-# # Homebrew's Python Scripts
-# [ -d "${HOMEBREW_HOME}/share/python" ] && PATH="${HOMEBREW_HOME}/share/python:$PATH"
+ifValidAppendToPath "${HOMEBREW_HOME}/bin"
+ifValidAppendToPath "${HOMEBREW_HOME}/sbin"
 
+# export PATH
+export PATH
 
-
-# export PYTHONPATH
 # Python
-# [ -f "${HOME}/.pythonrc" ] && export PYTHONSTARTUP="${HOME}/.pythonrc"
-# [ -d "/usr/local/lib/python2.7/site-packages" ] && export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
-
+[ -f "${HOME}/.pythonrc" ] && export PYTHONSTARTUP="${HOME}/.pythonrc"
 
 # virtualenvwrapper
 # export VIRTUALENVWRAPPER_PYTHON=$(which python)
@@ -64,7 +43,6 @@ ifValidAppendToPath "$__BRNGP_PLUGIN_PATH/bin"
 # # [ -f /usr/local/share/python/virtualenvwrapper_lazy.sh ]  && source /usr/local/share/python/virtualenvwrapper_lazy.sh
 # # export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--distribute --python=/usr/local/Cellar/python/2.7.3/bin/python'
 # export PIP_RESPECT_VIRTUALENV=true
-
 
 # # disable PS1 append by the activate hook from virtualenvwrapper
 # export VIRTUAL_ENV_DISABLE_PROMPT=' '
@@ -76,28 +54,15 @@ export HISTIGNORE="${HISTIGNORE}:&:ls:[bf]g:exit:ls *:cd:cd -:pwd;exit:date:* --
 export HISTCONTROL="${HISTCONTROL}:erasedups:ignoreboth"  # Erase duplicates
 export HISTTIMEFORMAT="%h/%D - %H:%M:%S "
 export HISTSIZE=15000 # resize history size
-export EDITOR="subl -n"
+export EDITOR="subl -w -n"
 export GIT_EDITOR=$EDITOR
 
 [ -d "/opt/local/share/man" ] && export MANPATH="/opt/local/share/man":$MANPATH
 
 
 # Java Stuff
-[ -d "/Library/Java/Home" ]                     && export JAVA_HOME="/Library/Java/Home"
+[ -d "/Library/Java/Home" ]                      && export JAVA_HOME="/Library/Java/Home"
 [ -f "/Users/windu/.local/apache-ant-1.8.2" ]    && export ANT_HOME="/Users/windu/.local/apache-ant-1.8.2"
 
 # Node JS
 export NODE_PATH="/usr/local/lib/node"
-
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
-
-
-# Autojump
-# [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-
-# Pythonbrew
-[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
-
-# export PATH
-export PATH

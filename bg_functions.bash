@@ -65,5 +65,11 @@ git-version() {
 	echo "Version: $version ($short_hash)"
 }
 
-
-k() { for i in $*; do pkill -9 -fi $i; done }
+# Force Purge $1 times
+spurge() {
+	echo "Purging ..."
+	for i in  $(seq ${1}); do
+	    echo "Purge ${i}/${1}"
+	    purge
+	done
+}

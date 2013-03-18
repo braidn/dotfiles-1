@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
+# wipe_iphone_simulator_data
+# Author: Bruno Gama
 
-_wipe() {
-    pkill -9 -fi simulator  2>/dev/null
-    _WD="$HOME/Library/Application Support/iPhone Simulator"
-    find "$_WD" -iname "*.app" | while read l; do
-        f=$(dirname "$l")
-        rm -rf "$f"
-        unset f
-    done
-    unset _WD
-    exit 0
-}
+pkill -9 -fi simulator  2>/dev/null
+_WD="$HOME/Library/Application Support/iPhone Simulator"
+find "$_WD" -iname "*.app" | while read l; do
+    f=$(dirname "$l")
+    rm -rf "$f"
+    unset f
+done
+unset _WD
 
-_wipe
+cat <<-__HEREDOC__
+
+Finished wiping iPhone Simulator Apps.
+
+__HEREDOC__

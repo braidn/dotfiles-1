@@ -1,6 +1,8 @@
 #!/usr/bin/env python -tt
-# -*- encoding: utf-8 -*- 
+# -*- encoding: utf-8 -*-
 # author: Bruno Gama
+#
+# The script is not ready, don't know why I left it here.
 
 import sys, subprocess, shlex
 from pprint import pprint

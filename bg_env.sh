@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# env.sh
+# bg_env.sh
 
 
 # Pre-functions to help $PATH handling.
@@ -25,8 +25,6 @@ ifValidAppendToPath "/Applications/Xcode.app/Contents/Developer/usr/bin"
 ifValidAppendToPath "/Applications/Unity/MonoDevelop.app/Contents/MacOS"
 ifValidAppendToPath "/Applications/Unity/MonoDevelop.app/Contents/Frameworks/Mono.framework/Commands/"
 ifValidAppendToPath "$__BG_PLUGIN_PATH/bin"
-
-# Homebrew
 ifValidAppendToPath "${HOMEBREW_HOME}/bin"
 ifValidAppendToPath "${HOMEBREW_HOME}/sbin"
 
@@ -35,18 +33,6 @@ export PATH
 
 # Python
 [ -f "${HOME}/.pythonrc" ] && export PYTHONSTARTUP="${HOME}/.pythonrc"
-
-# virtualenvwrapper
-# export VIRTUALENVWRAPPER_PYTHON=$(which python)
-# export WORKON_HOME=$HOME/.virtualenvs
-# [ -f /usr/local/bin/virtualenvwrapper.sh ]  && . /usr/local/bin/virtualenvwrapper.sh
-# # [ -f /usr/local/share/python/virtualenvwrapper_lazy.sh ]  && source /usr/local/share/python/virtualenvwrapper_lazy.sh
-# # export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--distribute --python=/usr/local/Cellar/python/2.7.3/bin/python'
-# export PIP_RESPECT_VIRTUALENV=true
-
-# # disable PS1 append by the activate hook from virtualenvwrapper
-# export VIRTUAL_ENV_DISABLE_PROMPT=' '
-
 
 # MISC
 export ARCHFLAGS="-arch i386 -arch x86_64"

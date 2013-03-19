@@ -73,3 +73,10 @@ spurge() {
 	    purge
 	done
 }
+
+new_project() {
+	mkdir -p "${HOME}/Projects/$1/Code"
+	mkdir -p "${HOME}/Projects/$1/Design"
+	mkdir -p "${HOME}/Projects/$1/Docs"
+	cd "${HOME}/Projects/$1"
+}

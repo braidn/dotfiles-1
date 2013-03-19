@@ -10,8 +10,8 @@ export __BG_PLUGIN_PATH=$(dirname $0)
 source $__BG_PLUGIN_PATH/bg_env.sh
 
 # source $__BG_PLUGIN_PATH/pip_completion.zsh
-source $__BG_PLUGIN_PATH/bg_aliases.bash
-source $__BG_PLUGIN_PATH/bg_functions.bash
+source $__BG_PLUGIN_PATH/bg_aliases.sh
+source $__BG_PLUGIN_PATH/bg_functions.sh
 
 ## OTHER FILES TO SOURCE
 

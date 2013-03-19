@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# bg_aliases.sh
+
 
 alias o="open"
 alias oo="open ."

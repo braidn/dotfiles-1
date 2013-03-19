@@ -1,5 +1,8 @@
-#!/bin/bash
-ss() {
+#!/usr/bin/env bash
+# bg_functions.sh
+
+
+#ss() {
 	__project=$(find . -iname "*.sublime-project" -d 1)
 	if [ -n "$__project" ]; then
 		echo "Opening ${__project}"

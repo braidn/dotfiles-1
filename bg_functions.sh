@@ -2,7 +2,7 @@
 # bg_functions.sh
 
 
-#ss() {
+ss() {
 	__project=$(find . -iname "*.sublime-project" -d 1)
 	if [ -n "$__project" ]; then
 		echo "Opening ${__project}"
@@ -13,16 +13,13 @@
 	fi
 	unset __project
 }
-pman() {
-	man -t "$@" | ps2pdf - - | open -f -a Preview
-}
+
+
 ox() {
 	open  $(basename $(pwd)).xcodeproj
 }
 
 # Django function to runserver for a given interface OR if no parameters passed it
-# will use en1
-
 runserver() {
 	# localip is a alias to a miniscript wrote in python to solve
 	# the localip which have access to the internet
@@ -42,17 +39,13 @@ runserver_plus() {
 }
 
 # run simple server
-function server() {
+server() {
 	local port="${1:-8000}"
 	open "http://localhost:${port}/"
 	# Set the default Content-Type to `text/plain` instead of `application/octet-stream`
 	# And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
 }
-
-# [#] Personal Functions
-# web
-
 
 iso_to_utf8() {
 	file_input=$1
@@ -77,8 +70,14 @@ spurge() {
 	done
 }
 
+_workon_project() { reply=($(ls -ld ~/Projects/* | while read i; do basename "$i" 2> /dev/null ; done | awk '$0 != "'Inactive'"')); }
+
+workon_project() { cd "${HOME}/Projects/${1}/Project" }
+
+compctl -K _workon_project workon_project
+alias wp="workon_project"
 new_project() {
-	mkdir -p "${HOME}/Projects/$1/Code"
+	mkdir -p "${HOME}/Projects/$1/Project"
 	mkdir -p "${HOME}/Projects/$1/Design"
 	mkdir -p "${HOME}/Projects/$1/Docs"
 	cd "${HOME}/Projects/$1"
